@@ -158,9 +158,9 @@ rotate = ->
     c.y = newy
     render()
  
-$(".left").on 'tap', -> move -1
-$(".right").on 'tap', -> move 1
-$(".turn").on 'tap', -> rotate()
+$(".left").on 'tap click', -> move -1
+$(".right").on 'tap click', -> move 1
+$(".turn").on 'tap click', -> rotate()
  
 mloop = null
  
@@ -174,12 +174,12 @@ checkEnd = ->
       clearTimeout mloop
       $(".status").text('Game Over!')
  
-$(".start").on 'tap', ->
+$(".start").on 'tap click', ->
   clearTimeout mloop if mloop
   $(".status").empty()
   reset()
   newBrick()
   mloop = setTimeout fall, speed
  
-$(".stop").on 'tap', ->
+$(".stop").on 'tap click', ->
   clearTimeout mloop if mloop
